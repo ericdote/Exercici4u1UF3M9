@@ -22,9 +22,12 @@ public class TimeClient {
         String dia = JOptionPane.showInputDialog(null, "Diu el numero del dia: ", "Entrando", 3);
         String mes = JOptionPane.showInputDialog(null, "Diu el mes: ", "Entrando", 3);
         String any = JOptionPane.showInputDialog(null, "Diu l'any: ", "Entrando", 3);
-        outToServer.writeInt(Integer.valueOf(dia));
-        outToServer.writeInt(Integer.valueOf(mes));
-        outToServer.writeInt(Integer.valueOf(any));
+        enviarAServer(Integer.parseInt(dia), Integer.parseInt(mes), Integer.parseInt(any));
+
+    }
+
+    public void enviarAServer(int dia, int mes, int any) throws IOException {
+        outToServer.writeBytes(dia + " " + mes + " " + any);
         bf.close();
         outToServer.close();
         ss.close();

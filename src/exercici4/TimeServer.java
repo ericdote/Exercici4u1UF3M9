@@ -32,7 +32,7 @@ public class TimeServer {
                 }
                 PrintStream out = new PrintStream(cliSocket.getOutputStream());
                 if (ok) {
-                    data[1] -= 1;
+                    data[1] -= 1; 
                     GregorianCalendar cal = new GregorianCalendar(data[2],
                             data[1], data[0]);
                     int dia = cal.get(Calendar.DAY_OF_WEEK) - 1;
